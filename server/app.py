@@ -198,28 +198,6 @@ def get_review(id):
     return jsonify({"answer": answer, "error" : []})
 
 
-@app.route('/uploads/<string:id>/chats/initialize', methods=['POST'])
-def get_chat_initalized(id):
-    object_id = ObjectId(id)
-
-    response = collection.find_one({"_id" : object_id})
-    response["_id"] = str(response["_id"])
-
-    with open('output.txt', 'w', encoding='utf-8') as f:
-        f.write(response['content'])
-
-    gptClient.generate_vector_db()
-
-    return jsonify({"answer": True, "error" : []})
-
-@app.route('/uploads/chats', methods=['GET'])
-def get_chat():
-    query = request.args.get('query')
-
-    response = gptClient.questions_and_answers(query)
-
-    return response
-
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8000, debug=True)
 

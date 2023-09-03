@@ -1,3 +1,4 @@
+import Sidebar from "./components/Sidebar"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import { useEffect, useState } from "react"
@@ -32,7 +33,9 @@ function App() {
   return (
     <>
       <div className="grid grid-cols-6 md:grid-cols-10 absolute inset-0">
-        <div className="col-start-1 col-span-3 md:col-span-2"></div>
+        <div className="col-start-1 col-span-3 md:col-span-2">
+          <Sidebar content={allDocuments} setDocument={setDocument} />
+        </div>
         <div className="col-start-3 col-span-3 md:col-span-8">{content}</div>
       </div>
     </>
