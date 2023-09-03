@@ -7,7 +7,7 @@ Smart Notes is a digital notebook, that has been designed to enhance the learnin
 The application also helps students in remembering the content by implementing a technique called spaced repetition. 
 
 
-## Features
+## Features 
 
 
 - **Digital Notebook**: SmartNotes is a digital notebook aimed at improving the learning process for students.
