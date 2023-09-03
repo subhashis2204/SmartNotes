@@ -25,13 +25,14 @@ endpoint = os.environ['VISION_ENDPOINT']
 gpt_key = os.environ['AZURE_OPENAI_KEY']
 gpt_endpoint = os.environ['AZURE_OPENAI_ENDPOINT']
 gpt_deployment_name = os.environ['AZURE_OPENAI_DEPLOYMENT_NAME']
+mongo_url = os.environ['MONGODB_URL']
 
 container = ContainerClient.from_connection_string(conn_str=connection_string, container_name='imgdata')
 gptClient = FlashCardGenerator(gpt_key, gpt_endpoint, gpt_deployment_name)
 
 app = Flask(__name__)
 
-client = MongoClient("mongodb://localhost:27017")
+client = MongoClient(mongo_url)
 db = client.users
 collection = db.users
 
